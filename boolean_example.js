@@ -10,16 +10,11 @@ class ScratchStandardBoolean {
                             "opcode": "rtrue",
                             "blockType": "reporter",
                             "text": "true",
-                            "arguments": {
-                                },
                             }
-                        },{"opcode": "rfalse",
+                        }, {"opcode": "rfalse",
                             "blockType": "reporter",
                             "text": "false",
-							"arguments": {
-                                },
-                            }
-                        }, ]
+                        } ]
         }
     }
 
