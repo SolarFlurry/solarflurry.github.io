@@ -1,3 +1,6 @@
+import { initBuffers } from "./init-buffers.js";
+import { drawScene } from "./draw-scene.js";
+
 main();
 
 //
@@ -13,6 +16,12 @@ const vsSource = `
       gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
     }
   `;
+  const fsSource = `
+    void main() {
+      gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+    }
+  `;
+
 
   const canvas = document.querySelector("#glcanvas");
   // Initialize the GL context
@@ -30,4 +39,24 @@ const vsSource = `
   gl.clearColor(0.0, 0.0, 0.0, 1.0);
   // Clear the color buffer with specified clear color
   gl.clear(gl.COLOR_BUFFER_BIT);
+  // Collect all the info needed to use the shader program.
+// Look up which attribute our shader program is using
+// for aVertexPosition and look up uniform locations.
+const programInfo = {
+  program: shaderProgram,
+  attribLocations: {
+    vertexPosition: gl.getAttribLocation(shaderProgram, "aVertexPosition"),
+  },
+  uniformLocations: {
+    projectionMatrix: gl.getUniformLocation(shaderProgram, "uProjectionMatrix"),
+    modelViewMatrix: gl.getUniformLocation(shaderProgram, "uModelViewMatrix"),
+  },
+};
+// Here's where we call the routine that builds all the
+// objects we'll be drawing.
+const buffers = initBuffers(gl);
+
+// Draw the scene
+drawScene(gl, programInfo, buffers);
+
 }
