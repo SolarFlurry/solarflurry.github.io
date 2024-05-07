@@ -5,4 +5,4 @@ canvas.width = 800;
 canvas.height = 600;
 
 gl.clearColor(0,0,0,1);
-gl.clear(gl.COLOR_BUFFET_BIT);
+gl.clear(gl.COLOR_BUFFER_BIT);
