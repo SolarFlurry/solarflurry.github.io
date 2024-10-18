@@ -9,7 +9,6 @@ body{
   width: 100%;
   overflow: hidden;
   background-color: DodgerBlue;
-  height: 50px;
   position: fixed
 }
 li{
