@@ -4,4 +4,5 @@ body{
 .navbar{
   margin: 0px;
   background-color: DodgerBlue;
+  position: fixed;
 }
