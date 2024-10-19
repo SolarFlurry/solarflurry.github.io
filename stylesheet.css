@@ -3,6 +3,7 @@ body{
   margin: 0px;
 }
 .navbar{
+  margin:0;
   padding: 0;
   list-style-type: none;
   top: 0px;
