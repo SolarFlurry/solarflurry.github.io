@@ -1,6 +1,8 @@
 body{
   font-family: sans-serif;
   margin: 0px;
+  text-color: #dddddd;
+  background-color: #222244;
 }
 .navbar{
   margin:0;
@@ -11,6 +13,10 @@ body{
   overflow: hidden;
   background-color: DodgerBlue;
   position: fixed
+}
+#content{
+  margin-top: 50px;
+  margin-left: 20px;
 }
 li{
   float: left;
