@@ -1,7 +1,7 @@
 body{
   font-family: sans-serif;
   margin: 0px;
-  text-color: #dddddd;
+  color: #dddddd;
   background-color: #0d1026;
 }
 .navbar{
@@ -28,6 +28,4 @@ li a{
   padding: 14px 16px;
   text-decoration: none;
 }
-p{
-  text-color: #dddddd;
-}
+
