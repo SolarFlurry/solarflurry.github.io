@@ -2,7 +2,7 @@ body{
   font-family: sans-serif;
   margin: 0px;
   text-color: #dddddd;
-  background-color: #222244;
+  background-color: #0d1026;
 }
 .navbar{
   margin:0;
@@ -27,4 +27,7 @@ li a{
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+p{
+  text-color: #dddddd;
 }
