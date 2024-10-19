@@ -11,7 +11,7 @@ body{
   top: 0px;
   width: 100%;
   overflow: hidden;
-  background-color: DodgerBlue;
+  background-color: linear-gradient(90deg, #0091ff, #00ffbb);
   position: fixed
 }
 #content{
