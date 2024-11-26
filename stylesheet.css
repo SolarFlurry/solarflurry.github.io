@@ -49,7 +49,6 @@ body{
 }
 .superheading{
   background: linear-gradient(135deg, #0091ff, #00ffbb);
-  font-weight: bold;
   color: transparent;
   background-clip: text;
   display: inline;
@@ -61,6 +60,9 @@ body{
 }
 #content{
   margin: 70px 20px;
+  grid-template-areas:
+    'sidebar main';
+  grid-template-columns: 30% 70%;
 }
 li{
   float: left;
@@ -71,4 +73,9 @@ li a{
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+
+.app-icon{
+  width: 100px;
+  height: 100px;
 }
