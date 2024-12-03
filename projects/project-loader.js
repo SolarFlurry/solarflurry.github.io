@@ -1,5 +1,5 @@
 async function getData() {
-  const url = "https://solarflurry.github.io/projects/data/some-project.json";
+  const url = "https://solarflurry.github.io/projects/data/";
   try {
     const response = await fetch(url);
     if (!response.ok) {
