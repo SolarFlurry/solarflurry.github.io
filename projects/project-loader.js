@@ -1,2 +1,2 @@
-var data = fetch('./data/'');
+var data = fetch('./data/');
 console.log(data);
