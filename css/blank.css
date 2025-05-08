@@ -1,0 +1,65 @@
+@keyframes progress {
+    0% {width:0%;}
+    100% {width:100%;}
+}
+#progress {
+    animation: progress auto linear;
+    animation-timeline: scroll();
+    position: fixed;
+    height: 10px;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, red, magenta);
+    box-shadow: 0 0px 10px;
+}
+#secret {
+    font-family: "Montserrat";
+    color: black;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    margin: 20px;
+}
+@keyframes rainbow {
+    0% {background-color: red;transform: rotate(0deg);}
+    25% {background-color: yellow;transform: rotate(10deg);}
+    35% {background-color: greenyellow;}
+    60% {background-color: skyblue;}
+    75% {transform: rotate(-10deg);}
+    100% {background-color: red;transform: rotate(0deg);}
+}
+rainbow {
+    color: white;
+    transition: all 0.2s;
+    animation: rainbow 2s linear 0s infinite;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: red;
+}
+rainbow:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+superheading {
+    font-size: 2em;
+    font-weight: 600;
+    background: linear-gradient(90deg, red, magenta);
+    color: transparent;
+    background-clip: text;
+}
+#tutorial {
+    color: black;
+}
+@keyframes shout {
+    0% {scale: 2;}
+    20% {scale: 3;}
+    100% {scale: 0;}
+}
+shout {
+    animation: shout 2s linear;
+    transition: all 2s;
+    position: fixed;
+    z-index: 90;
+}
