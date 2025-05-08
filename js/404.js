@@ -14,7 +14,7 @@ function changeFavicon(text) {
     link.href = canvas.toDataURL();
     document.head.appendChild(link);
 }
-if (document.location.href === 'https://solarflurry.github.io/blank') {
+if (document.location.href === 'https://solarflurry.github.io/blank' || document.location.host === '') {
     changeFavicon('')
     setTimeout(() => {
         var ans = prompt("Github Pages has detected 3 seconds of inactivity.\nRedirecting to solarflurry.github.io...\nPlease type 'cancel' to cancel", "")
@@ -26,14 +26,18 @@ if (document.location.href === 'https://solarflurry.github.io/blank') {
             changeFavicon('😎')
             var rainbows = document.getElementsByTagName("rainbow")
             for (i=0; i < rainbows.length; i++) {
-                rainbows[i].addEventListener('click', (event) => {
-                    for (j=0; j<10; j++) {
+                rainbows[i].addEventListener('mouseenter', (event) => {
+                    var shouts = event.target.shouts
+                    if (!shouts) {
+                        shouts = 10
+                    }
+                    for (j=0; j<shouts; j++) {
                         setTimeout(() => {
                             var shout = document.createElement("shout")
                             document.body.appendChild(shout)
                             shout.innerHTML = event.target.innerHTML
-                            shout.style.top = Math.random()*window.innerHeight
-                            shout.style.left = Math.random()*window.innerWidth
+                            shout.style.top = Math.random()*window.innerHeight.toString() + "px"
+                            shout.style.left = Math.random()*window.innerWidth.toString() + "px"
                             setTimeout(() => {
                                 shout.remove()
                             }, 2000)
@@ -46,5 +50,5 @@ if (document.location.href === 'https://solarflurry.github.io/blank') {
         } else {
             document.location.href = "/"
         }
-    }, 3000)
+    }, 100)
 }
