@@ -17,7 +17,7 @@ function changeFavicon(text) {
 if (document.location.href === 'https://solarflurry.github.io/blank') {
     changeFavicon('')
     setTimeout(() => {
-        var ans = prompt("Github Pages has detected 5 seconds of inactivity.\nRedirecting to solarflurry.github.io...\nPlease type 'cancel' to cancel", "")
+        var ans = prompt("Github Pages has detected 3 seconds of inactivity.\nRedirecting to solarflurry.github.io...\nPlease type 'cancel' to cancel", "")
         if (ans === 'nah keep me here') {
             var secret = document.getElementById('secret')
             secret.style.display = "block";
@@ -37,7 +37,7 @@ if (document.location.href === 'https://solarflurry.github.io/blank') {
                             setTimeout(() => {
                                 shout.remove()
                             }, 2000)
-                        }, j*200)
+                        }, j*150)
                     }
                 })
             }
@@ -46,5 +46,5 @@ if (document.location.href === 'https://solarflurry.github.io/blank') {
         } else {
             document.location.href = "/"
         }
-    }, 20)
+    }, 3000)
 }
