@@ -1,8 +1,17 @@
+:root {
+    --shake-move: 3px;
+}
 @keyframes progress {
     0% {width:0%;}
     100% {width:100%;}
 }
+#game {
+    text-align: center;
+    height: 400px;
+    width: 100%;
+}
 #progress {
+    z-index: 2;
     animation: progress auto linear;
     animation-timeline: scroll();
     position: fixed;
@@ -65,4 +74,35 @@ shout {
     animation: shout 2s linear;
     position: fixed;
     z-index: 90;
+    font-family: "Montserrat";
+}
+shouter:hover {
+    cursor: pointer;
+}
+button {
+    transition: all 0.2s;
+    background: linear-gradient(90deg, red, magenta);
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    border: none;
+    scale: 1;
+    font-family: "Montserrat";
+}
+button:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+button:active {
+    background: linear-gradient(90deg, #ffaaaa, #ffaaff);
+}
+@keyframes shake {
+    0% {translate: 0 0;}
+    25% {translate: var(--shake-move) var(--shake-move);}
+    50% {translate: calc(0px - var(--shake-move)) var(--shake-move);}
+    75% {translate: calc(0px - var(--shake-move)) calc(0px - var(--shake-move));}
+    100% {translate: var(--shake-move) calc(0px - var(--shake-move));}
+}
+.shake {
+    animation: shake 0.2s linear infinite;
 }

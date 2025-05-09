@@ -24,14 +24,10 @@ if (document.location.href === 'https://solarflurry.github.io/blank' || document
             document.title = "Secret Website :)"
             document.body.style.backgroundColor = "white"
             changeFavicon('😎')
-            var rainbows = document.getElementsByTagName("rainbow")
+            var rainbows = document.getElementsByTagName("shouter")
             for (i=0; i < rainbows.length; i++) {
                 rainbows[i].addEventListener('mouseenter', (event) => {
-                    var shouts = event.target.shouts
-                    if (!shouts) {
-                        shouts = 10
-                    }
-                    for (j=0; j<shouts; j++) {
+                    for (j=0; j<20; j++) {
                         setTimeout(() => {
                             var shout = document.createElement("shout")
                             document.body.appendChild(shout)
@@ -41,10 +37,29 @@ if (document.location.href === 'https://solarflurry.github.io/blank' || document
                             setTimeout(() => {
                                 shout.remove()
                             }, 2000)
-                        }, j*150)
+                        }, j*75)
                     }
                 })
             }
+            var messages = ['', '', "Double Click!", "Triple Click!", "Ultra Click!", "Mega Click!", "Insane Click!!","Dominating Click!!", "Rampaging Click!!", "Monster Click!!!", "Unstoppable Click!!!", "Mouse Breaking Click!!!","GODLIKE CLICK!!!!"]
+            var clicks = 0
+            var counter = document.getElementById("counter")
+            var increase = document.getElementById("increase")
+            increase.addEventListener('click', (event) => {
+                clicks += 1
+                counter.innerHTML = messages[Math.min(clicks, messages.length-1)] + "\nClicks: " + clicks.toString()
+                event.target.animate([
+                    {scale: 1, offset: 0},
+                    {scale: 2, offset: 0.5},
+                    {scale: 1, offset: 1}
+                ],{
+                    duration: 200,
+                    iterations: 1
+                })
+                if (clicks > messages.length - 2) {
+                    counter.classList.add("shake")
+                }
+            })
         } else if (ans === 'cancel') {
             alert("Github Pages redirect has been canceled")
         } else {
