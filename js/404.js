@@ -41,12 +41,14 @@ if (document.location.href === 'https://solarflurry.github.io/blank' || document
                     }
                 })
             }
-            var messages = ['', '', "Double Click!", "Triple Click!", "Ultra Click!", "Mega Click!", "Insane Click!!","Dominating Click!!", "Rampaging Click!!", "Monster Click!!!", "Unstoppable Click!!!", "Mouse Breaking Click!!!","GODLIKE CLICK!!!!"]
+            var messages = ['', '', "Double Click!", "Triple Click!", "Mega Click!", "Ultra Click!", "Crazy Click!!", "Insane Click!!","Dominating Click!!", "Rampaging Click!!", "Monster Click!!!", "Unstoppable Click!!!", "Mouse Breaking Click!!!", "Spamming Click!!!", "GODLIKE CLICK!!!!"]
             var clicks = 0
             var counter = document.getElementById("counter")
             var increase = document.getElementById("increase")
             increase.addEventListener('click', (event) => {
                 clicks += 1
+                event.target.style.position = "absolute"
+                event.target.style.left = Math.random()*(window.innerWidth - 100).toString() + "px" 
                 counter.innerHTML = messages[Math.min(clicks, messages.length-1)] + "\nClicks: " + clicks.toString()
                 event.target.animate([
                     {scale: 1, offset: 0},
@@ -57,7 +59,8 @@ if (document.location.href === 'https://solarflurry.github.io/blank' || document
                     iterations: 1
                 })
                 if (clicks > messages.length - 2) {
-                    counter.classList.add("shake")
+                    counter.classList.add("godlike")
+                    document.getElementById("needsgodlike").style.display = "block"
                 }
             })
         } else if (ans === 'cancel') {

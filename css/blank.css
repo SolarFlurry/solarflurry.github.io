@@ -1,5 +1,7 @@
 :root {
     --shake-move: 3px;
+    --color1: red;
+    --color2: magenta;
 }
 @keyframes progress {
     0% {width:0%;}
@@ -18,7 +20,7 @@
     height: 10px;
     top: 0;
     left: 0;
-    background: linear-gradient(90deg, red, magenta);
+    background: linear-gradient(90deg, var(--color1), var(--color2));
     box-shadow: 0 0px 10px;
 }
 #secret {
@@ -55,7 +57,7 @@ rainbow:hover {
 superheading {
     font-size: 2em;
     font-weight: 600;
-    background: linear-gradient(90deg, red, magenta);
+    background: linear-gradient(90deg, var(--color1), var(--color2));
     color: transparent;
     background-clip: text;
 }
@@ -81,7 +83,7 @@ shouter:hover {
 }
 button {
     transition: all 0.2s;
-    background: linear-gradient(90deg, red, magenta);
+    background: linear-gradient(90deg, var(--color1), var(--color2));
     border-radius: 10px;
     color: white;
     padding: 10px;
@@ -103,6 +105,12 @@ button:active {
     75% {translate: calc(0px - var(--shake-move)) calc(0px - var(--shake-move));}
     100% {translate: var(--shake-move) calc(0px - var(--shake-move));}
 }
-.shake {
+.godlike {
     animation: shake 0.2s linear infinite;
+    font-weight: 600;
+    color: black;
+}
+small {
+    color: inherit;
+    font-size: x-small;
 }
