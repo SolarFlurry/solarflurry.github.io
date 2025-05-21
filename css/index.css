@@ -1,0 +1,158 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(13, 15, 23);
+    color: white;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+supertext {
+    display: block;
+    background: linear-gradient(90deg, aquamarine, aqua);
+    color: transparent;
+    background-clip: text;
+}
+
+heading {
+    display: block;
+    font-size: 2em;
+    text-align: center;
+}
+
+tool-tip {
+    background: linear-gradient(90deg, red, magenta);
+    color: transparent;
+    background-clip: text;
+    font-weight: 500;
+}
+
+tip {
+    z-index: 4;
+    width: 16%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 3px 0 rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.1);
+    position: fixed;
+    display: block;
+    border-radius: 10px;
+    padding: 10px;
+    opacity: 0;
+    scale: 0;
+    transition: opacity 0.2s;
+}
+
+#navbar {
+    position: fixed;
+    text-align: center;
+    top: 30px;
+    align-items: center;
+    background-color: transparent;
+    font-size: 1.1em;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 28px;
+    padding: 7px 7px;
+    box-shadow: 0 0 20px 0px aquamarine;
+    backdrop-filter: blur(2px);
+}
+
+.content {
+    margin: 160px 80px;
+}
+
+nav-link {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    z-index: 3;
+}
+
+nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#link-select {
+    position: absolute;
+    color: transparent;
+    z-index: 2;
+    background-color: grey;
+}
+
+#search {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+#search:hover {
+    background-color: rgba(67, 153, 122, 0.5);
+}
+
+#search-bar {
+    width: calc(100% - 35px);
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+input[type='text'] {
+    background-color: black;
+    border: none;
+    font-family: 'Montserrat' monospace;
+    padding: 15px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    color: grey;
+}
+
+input[type='text']:hover {
+    box-shadow: 0 0 10px 0 white;
+}
+
+input[type='text']:focus {
+    color: white;
+    border: none;
+    box-shadow: 0 0 10px 0 lightblue;
+}
+
+#search-popup {
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: none;
+    position: fixed;
+    width: 50%;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -250%);
+}
+#search-popup::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#cool-animate p {
+    scale: 1;
+    transition: all 1s;
+}
+
+#cool-animate p:hover {
+    cursor: default;
+    scale: 1.05;
+    text-shadow: 0 0 5px white;
+}
+
+#solarflurry {
+    text-shadow: 0 0 20px aquamarine;
+    transition: all 1s;
+}
+
+#solarflurry:hover {
+    cursor: default;
+    scale: 1.1;
+    text-shadow: 0 0 20px aqua;
+}

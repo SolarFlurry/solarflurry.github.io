@@ -14,12 +14,13 @@ function changeFavicon(text) {
     link.href = canvas.toDataURL();
     document.head.appendChild(link);
 }
-if (document.location.href === 'https://solarflurry.github.io/blank' || document.location.host === '') {
+if (document.location.href === 'https://solarflurry.github.io/blank' || document.location.host === '' || document.location.hostname === 'localhost') {
     changeFavicon('')
     setTimeout(() => {
         var ans = prompt("Github Pages has detected 3 seconds of inactivity.\nRedirecting to solarflurry.github.io...\nPlease type 'cancel' to cancel", "")
         if (ans === 'nah keep me here') {
             var secret = document.getElementById('secret')
+            document.getElementsByClassName("container")[0].style.display = "none"
             secret.style.display = "block";
             document.title = "Secret Website :)"
             document.body.style.backgroundColor = "white"

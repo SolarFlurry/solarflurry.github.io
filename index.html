@@ -1,1 +1,49 @@
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Access-Control-Allow-Origin"/>
+        <title>SolarFlurry - Home</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/index.css"/>
+    </head>
+    <body>
+        <div id="navbar">
+            <nav-link id="link-select">Home</nav-link>
+            <nav-link content="home">Home</nav-link>
+            <nav-link content="projects">Projects</nav-link>
+            <nav-link content="about">About</nav-link>
+            <nav-link id="search">
+                search
+            </nav-link>
+        </div>
+        <div id="home" class="content">
+            <div id="tips">
+                <tip id="js-tip"><heading>JavaScript</heading><p>A versatile and popular programming language mainly used for web applications, and is one of the most widely used languages</p></tip>
+                <tip id="java-tip"><heading>Java</heading><p>A class-based, object-oriented programming language known for its portability, easy-to-use interface and security</p></tip>
+                <tip id="c++-tip"><heading>C++</heading><p>A high-level programming language that offers extensive control over memory and system resources, and is used to create Operating Systems and Video Games</p></tip>
+                <tip id="realism-tip"><heading>Realism Art</heading><p>An art style that focuses on being as realistic and detailed as possible, with many fine and accurate elements</p></tip>
+                <tip id="cartoon-tip"><heading>Cartoon Art</heading><p>An art style that blends together semi-realism and features of animated illustrations</p></tip>
+            </div>
+            <div style="text-align: center;font-size:1.5em;" id="cool-animate">
+                <heading style="font-size: 3em;" id="solarflurry"><supertext>SolarFlurry</supertext></heading>
+                <p>Hobbyist programmer - <tool-tip tip="js-tip">JavaScript</tool-tip>, <tool-tip tip="java-tip">Java</tool-tip>, <tool-tip tip="c++-tip">C++</tool-tip></p>
+                <p>Adept Artist - <tool-tip tip="realism-tip">Realism</tool-tip>, <tool-tip tip="cartoon-tip">Cartoon</tool-tip></p>
+                <p>Experienced Musician - Flute, Piano</p>
+                <p>Awesome Gamer - Do I Really Need to Say? &#128526</p>
+            </div>
+        </div>
+        <div id="projects" class="content" style="display:none;">
+            <heading>Projects</heading>
+        </div>
+        <div id="about" class="content" style="display:none;">
+            <heading>About</heading>
+        </div>
+        <div id="search-popup">
+            <input type="text" placeholder="Search" id="search-bar"/>
+            <div id="inputtext">search something</div>
+        </div>
+        <script src="./js/index.js"></script>
+    </body>
+</html>
