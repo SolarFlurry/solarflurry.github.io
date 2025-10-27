@@ -1,112 +1,114 @@
-body{
-  font-family: Montserrat, sans-serif;
-  margin: 0px;
-  color: #dddddd;
-  background-color: #0d1026;
-}
-.navbar{
-  padding-left: 50px;
-  margin:0;
-  list-style-type: none;
-  top: 0px;
-  width: 100%;
-  overflow: hidden;
-  background-color: #0e1526;
-  position: fixed;
-  box-shadow: 0 0 10px 3px #0081af;
-  z-index: 9999999999;
-}
-.panel{
-  border-radius: 25px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #00cce3;
-  background-color: rgba(0, 204, 227, 0.1);
-  display: block;
-  box-shadow: 0 0 10px #000000;
-  padding: 10px 30px;
-}
-.panel-content{
-  padding: 20px;
-}
-.gradient{
-  height: 115px;
-  margin-top: -100px;
-  margin-bottom: -60px;
-  background-image: linear-gradient(transparent, #1B273E 80%, #1B273E);
-  position: relative;
-  z-index: 0;
-}
-.attribute{
-  border-radius: 50px;
-  background-color: #111213;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  display: inline;
-  font-size: 0.8em;
-  margin-right: 5px;
-}
-.datum{
-  margin-top: 1em;
-}
-.superheading{
-  background: linear-gradient(135deg, #0091ff, #00ffbb);
-  color: transparent;
-  background-clip: text;
-  display: inline;
-  font-size: 4em;
-}
-.grid{
-  display: grid;
-  row-gap: 40px;
-}
-#content{
-  margin: 70px 20px;
-  height: 100%;
-  grid-template-areas:
-    'about',
-    'projects',
-    'apps';
-  grid-template-rows: auto;
-}
-li{
-  float: left;
-}
-li a{
-  display: block;
-  background: linear-gradient(135deg, #0091ff, #00ffbb);
-  color: transparent;
-  background-clip: text;
-  font-weight: 500;
-  font-size: 1.2em;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+* {
+	margin: 0;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 100;
 }
 
-.app-icon{
-  text-decoration: none;
+a {
+	text-decoration: none;
+	color: transparent;
+	background: linear-gradient(90deg, red, magenta);
+	background-clip: text;
 }
 
-#about{
-  font-size: 1.2em;
-  grid-area: 'about';
-  margin: 60px;
-  margin-bottom: 0px;
-  display: grid;
-  grid-template-areas: 'intro data';
-  grid-template-columns: auto;
-  grid-column-gap: 40px;
+#background {
+	filter: blur(1px);
+	background: linear-gradient(0deg, #150528, #2b0b56);
+	position: fixed;
+	z-index: -1;
 }
 
-.button {
-  border-radius: 10px;
-  padding: 10px 30px;
-  margin: 30px 0px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #00cce3;
-  background-color: rgba(0, 204, 227, 0.1);
-  text-decoration: none;
-  color: inherit;
+.content {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	transition: opacity 0.5s;
+	opacity: 1;
+	margin-bottom: 10rem;
+}
+
+#navbar {
+	padding: 10px;
+	translate: -50% -50%;
+	left: 50%;
+	top: 50px;
+	position: fixed;
+	border-radius: 50px;
+	z-index: 1;
+}
+
+.navlink {
+	border-radius: 100px;
+	float: left;
+	padding: 10px 20px;
+	margin: 0px 5px;
+	transition: all 0.2s;
+}
+
+.navlink:hover {
+	cursor: pointer;
+}
+
+.navlink:not(.glass) {
+	box-shadow: rgba(255, 255, 255, 0.2) 0 0 1px 0;
+	background-color: rgba(255, 255, 255, 0.02);
+}
+
+.navlink:not(.glass):hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+#languages {
+	position: relative;
+	top: 2rem;
+}
+
+.language {
+	position: relative;
+	float: left;
+	margin-left: 3rem;
+}
+
+.language::after {
+	content: '';
+	position: absolute;
+	translate: -50% -50%;
+	width: 1rem;
+	height: 1rem;
+	top: 50%;
+	left: -0.8rem;
+	border-radius: 100%;
+}
+
+.language:nth-child(1):after, .bar:nth-child(1) {background-color: #f34b7d;}
+.language:nth-child(2):after, .bar:nth-child(2) {background-color: #3178c6;}
+.language:nth-child(3):after, .bar:nth-child(3) {background-color: #00ADD8;}
+.language:nth-child(4):after, .bar:nth-child(4) {background-color: #dea584;}
+
+.bar {
+	height: 0.5rem;
+	display: inline-block;
+}
+
+.bar:first-child {
+	border-top-left-radius: 100px;
+	border-bottom-left-radius: 100px;
+}
+.bar:last-child {
+	border-top-right-radius: 100px;
+	border-bottom-right-radius: 100px;
+}
+
+.glass {
+	background-color: rgba(255, 255, 255, 0.1);
+	box-shadow: rgba(255, 255, 255, 0.4) 0 0 2px 0;
+	backdrop-filter: blur(5px);
+}
+
+.middle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
 }
