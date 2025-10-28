@@ -5,6 +5,14 @@ let currentContentId = "home";
 const navlinks = document.getElementsByClassName("navlink");
 let currentNavLink;
 
+for (const content of document.getElementsByClassName("content")) {
+	if (content.id == "home") {
+		content.style.opacity = 1;
+		continue
+	};
+	content.style.opacity = 0;
+}
+
 for (const navlink of navlinks) {
 	if (navlink.getAttribute("content") == "home") {
 		currentNavLink = navlink;
@@ -79,8 +87,8 @@ for (let i = 0; i < 1000; i++) {
 }
 
 setInterval(() => {
-	canvas.height = window.innerHeight;
-	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight + 20;
+	canvas.width = window.innerWidth + 20;
 	if (accelerating == 1) {
 		speed = (Math.sin(time/ACCELERATE_SPEED-Math.PI/2) * 0.5 + 0.5) * (MAX_SPEED - MIN_SPEED) + MIN_SPEED
 		if (time >= Math.PI*ACCELERATE_SPEED) {speed = MAX_SPEED;}
