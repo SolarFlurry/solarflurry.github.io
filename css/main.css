@@ -55,17 +55,18 @@ a {
 	top: -10px;
 	left: -10px;
 	filter: blur(1px);
-	background: linear-gradient(0deg, #150528, #2b0b56);
+	background: linear-gradient(0deg, #150528, #1B0066);
 	position: fixed;
 	z-index: -1;
 }
 
-.content {
+#content {
 	width: 100vw;
-	height: 100vh;
+	height: max-content;
 	position: relative;
 	transition: opacity 0.5s;
-	margin-bottom: 10rem;
+	padding-bottom: 10rem;
+	top: 10rem;
 }
 
 #navbar {
@@ -174,7 +175,6 @@ a {
 
 .languages {
 	width: max-content;
-	position: relative;
 }
 
 .language {
@@ -198,6 +198,9 @@ a {
 .language.typescript:after, .bar:nth-child(2) {background-color: #3178c6;}
 .language.go:after, .bar:nth-child(3) {background-color: #00ADD8;}
 .language.rust:after, .bar:nth-child(4) {background-color: #dea584;}
+.language.java:after {background-color: #b07219;}
+.language.python:after {background-color: #3572A5;}
+.language.javascript:after {background-color: #f1e05a;}
 
 .bar {
 	height: 0.5rem;
@@ -217,12 +220,14 @@ a {
 
 .glass {
 	background-color: rgba(255, 255, 255, 0.1);
-	box-shadow: rgba(255, 255, 255, 0.8) 0 0 1px 0;
+	box-shadow:
+		rgba(0, 0, 0, 0.1) 0 0 5px,
+		rgba(255, 255, 255, 0.8) 0 0 1px 0;
 	backdrop-filter: blur(5px);
 }
 
 .middle {
-	position: absolute;
-	left: 50%;
-	translate: -50% 0;
+	position: relative;
+	width: max-content;
+	margin: 0 auto;
 }

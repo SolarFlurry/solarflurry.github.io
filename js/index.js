@@ -1,47 +1,71 @@
 /// NAVBAR
-let currentContent = document.getElementById("home");
-let currentContentId = "home";
+let pathname = location.pathname.slice(1);
+if (pathname == "") {
+	pathname = "home";
+}
+const contentElement = document.getElementById("content");
+let currentTab = pathname;
 
 const navlinks = document.getElementsByClassName("navlink");
 let currentNavLink;
 
-for (const content of document.getElementsByClassName("content")) {
-	if (content.id == "home") {
-		content.style.opacity = 1;
-		continue
-	};
-	content.style.opacity = 0;
-}
+fetch('/resource/' + pathname + '.html').then((data) => {
+	if (!data.ok) {
+		// 404
+		return;
+	}
+	data.text().then((data) => {
+		contentElement.innerHTML = data;
+		contentElement.style.display = "block";
+	});
+})
 
 for (const navlink of navlinks) {
-	if (navlink.getAttribute("content") == "home") {
+	if (navlink.getAttribute("content") == pathname) {
 		currentNavLink = navlink;
+		currentNavLink.classList.add("glass");
 	}
 	navlink.addEventListener('click', (event) => {
 		const content = navlink.getAttribute("content");
-		if (content && content != currentContentId) {
+		if (content && content != currentTab) {
 			accelerate(true);
-			currentContent.style.opacity = 0;
+			contentElement.style.opacity = 0;
 			setTimeout(() => {
-				currentContent.style.display = "none";
-				accelerate(false)
+				contentElement.style.display = "none";
 				window.scrollTo({
 					top: 0,
 					left: 0,
 					behavior: 'auto'
 				})
-				currentContent = document.getElementById(content);
-				currentContent.style.display = "block";
-				void navlink.offsetWidth;
-				currentContent.style.opacity = 1;
-				currentContentId = content;
-				currentNavLink.classList.remove("glass");
-				currentNavLink = navlink;
-				currentNavLink.classList.add("glass");
-			}, ACCELERATE_SPEED*Math.PI*4);
+				fetch('/resource/' + content + '.html').then((data) => {
+					if (!data.ok) {
+						// 404
+						return;
+					}
+					if (content == "home") {
+						history.replaceState(null, null, '/')
+					} else {
+						history.replaceState(null, null, '/' + content);
+					}
+					accelerate(false);
+					data.text().then((data) => {
+						contentElement.innerHTML = data;
+						contentElement.style.display = "block";
+
+						void navlink.offsetWidth;
+
+						contentElement.style.opacity = 1;
+					});
+					currentTab = content;
+
+					currentNavLink.classList.remove("glass");
+					currentNavLink = navlink;
+					currentNavLink.classList.add("glass");
+				})
+			}, ACCELERATE_SPEED * Math.PI * 4);
 		}
 	})
-} 
+}
 
 /// BACKGROUND
 const canvas = document.getElementById("background");
@@ -76,9 +100,9 @@ function accelerate(cond) {
 
 function randomPoint() {
 	return {
-		x: Math.random() * canvas.width*2 - canvas.width/2,
-		y: Math.random() * canvas.height*2 - canvas.height/2,
-		z: Math.random()*2 + 0.1, 
+		x: Math.random() * canvas.width * 2 - canvas.width / 2,
+		y: Math.random() * canvas.height * 2 - canvas.height / 2,
+		z: Math.random() * 2 + 0.1,
 	}
 }
 
@@ -90,21 +114,21 @@ setInterval(() => {
 	canvas.height = window.innerHeight + 20;
 	canvas.width = window.innerWidth + 20;
 	if (accelerating == 1) {
-		speed = (Math.sin(time/ACCELERATE_SPEED-Math.PI/2) * 0.5 + 0.5) * (MAX_SPEED - MIN_SPEED) + MIN_SPEED
-		if (time >= Math.PI*ACCELERATE_SPEED) {speed = MAX_SPEED;}
+		speed = (Math.sin(time / ACCELERATE_SPEED - Math.PI / 2) * 0.5 + 0.5) * (MAX_SPEED - MIN_SPEED) + MIN_SPEED
+		if (time >= Math.PI * ACCELERATE_SPEED) { speed = MAX_SPEED; }
 	} else if (accelerating == -1) {
-		speed = (0.5-Math.sin(time/ACCELERATE_SPEED-Math.PI/2) * 0.5) * (MAX_SPEED - MIN_SPEED) + MIN_SPEED
-		if (time >= Math.PI*ACCELERATE_SPEED) {accelerating = 0;}
+		speed = (0.5 - Math.sin(time / ACCELERATE_SPEED - Math.PI / 2) * 0.5) * (MAX_SPEED - MIN_SPEED) + MIN_SPEED
+		if (time >= Math.PI * ACCELERATE_SPEED) { accelerating = 0; }
 	} else {
 		speed = MIN_SPEED;
 	}
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	for (const point of points) {
 		ctx.lineWidth = Math.max(1 / point.z, 0.1);
-		ctx.strokeStyle = `rgba(255, 255, 255, ${Math.min(1.9-point.z, 1)}`
+		ctx.strokeStyle = `rgba(255, 255, 255, ${Math.min(1.9 - point.z, 1)}`
 		ctx.beginPath();
-		ctx.moveTo((point.x - canvas.width/2) / point.z + canvas.width/2, (point.y-canvas.height/2) / point.z + canvas.height/2);
-		ctx.lineTo((point.x - canvas.width/2) / (point.z + speed*STREAK) + canvas.width/2, (point.y - canvas.height/2) / (point.z + speed*STREAK) + canvas.height/2);
+		ctx.moveTo((point.x - canvas.width / 2) / point.z + canvas.width / 2, (point.y - canvas.height / 2) / point.z + canvas.height / 2);
+		ctx.lineTo((point.x - canvas.width / 2) / (point.z + speed * STREAK) + canvas.width / 2, (point.y - canvas.height / 2) / (point.z + speed * STREAK) + canvas.height / 2);
 		ctx.stroke();
 		point.z -= speed;
 		if (point.z <= speed) {
