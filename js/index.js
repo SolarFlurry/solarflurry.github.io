@@ -138,5 +138,5 @@ setInterval(() => {
 			point.z = 2;
 		}
 	}
-	time++;
-}, 1)
+	time += 1;
+}, 0)
