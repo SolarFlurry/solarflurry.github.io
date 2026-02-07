@@ -198,6 +198,7 @@ a {
 .language.typescript:after, .bar:nth-child(2) {background-color: #3178c6;}
 .language.go:after, .bar:nth-child(3) {background-color: #00ADD8;}
 .language.rust:after, .bar:nth-child(4) {background-color: #dea584;}
+.language.c:after {background-color: #555555;}
 .language.java:after {background-color: #b07219;}
 .language.python:after {background-color: #3572A5;}
 .language.javascript:after {background-color: #f1e05a;}
