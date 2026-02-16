@@ -46,7 +46,7 @@ for (const navlink of navlinks) {
 					}
 					if (content == "home") {
 						history.replaceState(null, null, '/')
-					} else if (content == "../blogs/out.html") {
+					} else if (content == "../blogs/out") {
 						history.replaceState(null, null, '/blogs/');
 					} else {
 						history.replaceState(null, null, '/' + content);
