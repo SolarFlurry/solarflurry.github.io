@@ -2,6 +2,8 @@
 let pathname = location.pathname.slice(1);
 if (pathname == "") {
 	pathname = "home";
+} else if (pathname == "blogs") {
+	pathname == '../blogs/out';
 }
 const contentElement = document.getElementById("content");
 let currentTab = pathname;
@@ -44,6 +46,8 @@ for (const navlink of navlinks) {
 					}
 					if (content == "home") {
 						history.replaceState(null, null, '/')
+					} else if (content == "../blogs/out.html") {
+						history.replaceState(null, null, '/blogs/');
 					} else {
 						history.replaceState(null, null, '/' + content);
 					}
