@@ -4,6 +4,8 @@ if (pathname == "") {
 	pathname = "home";
 } else if (pathname == "blogs/") {
 	pathname = '../blogs/out';
+} else {
+	pathname = pathname.slice(0, -1)
 }
 const contentElement = document.getElementById("content");
 let currentTab = pathname;
@@ -32,6 +34,11 @@ for (const navlink of navlinks) {
 		if (content && content != currentTab) {
 			accelerate(true);
 			contentElement.style.opacity = 0;
+			currentTab = content;
+			currentNavLink.classList.remove("glass");
+			currentNavLink = navlink;
+			currentNavLink.classList.add("glass");
+			
 			setTimeout(() => {
 				contentElement.style.display = "none";
 				window.scrollTo({
@@ -39,6 +46,7 @@ for (const navlink of navlinks) {
 					left: 0,
 					behavior: 'auto'
 				})
+
 				fetch('/resource/' + content + '.html').then((data) => {
 					if (!data.ok) {
 						// 404
@@ -49,7 +57,7 @@ for (const navlink of navlinks) {
 					} else if (content == "../blogs/out") {
 						history.replaceState(null, null, '/blogs/');
 					} else {
-						history.replaceState(null, null, '/' + content);
+						history.replaceState(null, null, '/' + content + '/');
 					}
 					accelerate(false);
 					data.text().then((data) => {
@@ -60,11 +68,6 @@ for (const navlink of navlinks) {
 
 						contentElement.style.opacity = 1;
 					});
-					currentTab = content;
-
-					currentNavLink.classList.remove("glass");
-					currentNavLink = navlink;
-					currentNavLink.classList.add("glass");
 				})
 			}, ACCELERATE_SPEED * Math.PI * 4);
 		}
@@ -99,7 +102,9 @@ const STAR_COUNT = 1000;
 const points = new Float32Array(STAR_COUNT * 3);
 
 function accelerate(cond) {
-	accelerateStart = performance.now();
+	if (accelerating != 1) {
+		accelerateStart = performance.now();
+	}
 	if (cond) {
 		accelerating = 1
 	} else {
