@@ -2,7 +2,7 @@
 let pathname = location.pathname.slice(1);
 if (pathname == "") {
 	pathname = "home";
-} else if (pathname == "blogs") {
+} else if (pathname == "blogs/") {
 	pathname == '../blogs/out';
 }
 const contentElement = document.getElementById("content");
