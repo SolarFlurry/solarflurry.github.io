@@ -2,6 +2,7 @@
 	margin: 0;
 	color: white;
 	font-family: 'Open Sans', sans-serif;
+	--glass-outline: rgba(255, 255, 255, 0.5);
 }
 
 ::selection {
@@ -18,7 +19,7 @@
   	display: none;
   	position: fixed;
   	background-color: rgba(170, 200, 255, 0.1);
-  	box-shadow: rgba(255, 255, 255, 0.8) 0 0 1px;
+  	box-shadow: var(--glass-outline) 0 0 2px inset;
   	z-index: 1000;
 	border-radius: 5px;
 	backdrop-filter: blur(5px);
@@ -89,7 +90,9 @@ a {
 	float: left;
 	padding: 10px 20px;
 	margin: 0px 5px;
-	transition: all 0.3s;
+	transition:
+		background-color 0.3s,
+		scale 0.1s;
 }
 
 .navlink:hover {
@@ -97,11 +100,11 @@ a {
 }
 
 .navlink:active {
-	scale: 1.2;
+	scale: 1.1;
 }
 
 .navlink:not(.glass) {
-	box-shadow: rgba(255, 255, 255, 0.2) 0 0 2px 0;
+	box-shadow: rgba(255, 255, 255, 0.2) 0 0 2px 0 inset;
 	background-color: rgba(255, 255, 255, 0.02);
 }
 
@@ -220,7 +223,7 @@ a {
 	background-color: rgba(255, 255, 255, 0.1);
 	box-shadow:
 		rgba(0, 0, 0, 0.1) 0 0 5px,
-		rgba(255, 255, 255, 0.8) 0 0 2px 0;
+		var(--glass-outline) 0 0 2px 0 inset;
 	backdrop-filter: blur(3px);
 }
 
