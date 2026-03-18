@@ -2,7 +2,7 @@
 	margin: 0;
 	color: white;
 	font-family: 'Open Sans', sans-serif;
-	--glass-outline: rgba(255, 255, 255, 0.5);
+	--glass-outline: rgba(255, 255, 255, 0.15);
 }
 
 ::selection {
@@ -104,7 +104,7 @@ a {
 }
 
 .navlink:not(.glass) {
-	box-shadow: rgba(255, 255, 255, 0.2) 0 0 2px 0 inset;
+	border: solid 1px rgba(255, 255, 255, 0.05);
 	background-color: rgba(255, 255, 255, 0.02);
 }
 
@@ -222,8 +222,8 @@ a {
 .glass {
 	background-color: rgba(255, 255, 255, 0.1);
 	box-shadow:
-		rgba(0, 0, 0, 0.1) 0 0 5px,
-		var(--glass-outline) 0 0 2px 0 inset;
+		rgba(0, 0, 0, 0.1) 0 0 5px;
+	border: solid 1px var(--glass-outline);
 	backdrop-filter: blur(3px);
 }
 
